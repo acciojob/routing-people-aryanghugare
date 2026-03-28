@@ -26,8 +26,8 @@ useEffect(fetchUsers,[])
     <>
 <h1>User Details</h1>
 {
-loading && <h1>Loading !!</h1>}
-{
+loading ? <h1>Loading...</h1> :
+
 
 <div key={users.id}>
 <p>Name : {users.name}</p>
