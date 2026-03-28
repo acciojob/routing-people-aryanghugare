@@ -19,22 +19,22 @@ fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
 }
 
 
-useEffect(fetchUsers,[])
+useEffect(fetchUsers,[id])
 
 
   return (
     <>
 {
-loading ? <h1>Loading...</h1> :
+loading ? <div>Loading...</div> :
 
 
 <div key={users.id}>
 <h1>User Details</h1>
-<p>Name : {users.name}</p>
-<p>Username : {users.username}</p>
-<p>Email : {users.email}</p>
-<p>Phone : {users.phone}</p>
-<p>Website : {users.website}</p>
+<p>Name: {users.name}</p>
+<p>Username: {users.username}</p>
+<p>Email: {users.email}</p>
+<p>Phone: {users.phone}</p>
+<p>Website: {users.website}</p>
 </div>
 
 }

@@ -1,7 +1,7 @@
 import React from 'react';
 import { useEffect  } from 'react';
 import { useState } from 'react';
-import { Link , NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 
 
@@ -26,12 +26,12 @@ useEffect(fetchUsers
     <>
 
 
-{loading ? <h1>Loading...</h1> : (
+{loading ? <div>Loading...</div> : (
   <>
     <h1>User List</h1>
     <ul>
       {users.map((user) => (
-        <li key={user.id}><Link to={"users/" + user.id}>{user.name}</Link></li>
+        <li key={user.id}><Link to={"/users/" + user.id}>{user.name}</Link></li>
       ))}
     </ul>
   </>
