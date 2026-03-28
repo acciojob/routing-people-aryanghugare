@@ -23,10 +23,8 @@ fetch('https://jsonplaceholder.typicode.com/users')
 useEffect(fetchUsers
 ,[])
   return (
-    <>
+   
 
-
-{loading ? <div>Loading...</div> : (
   <>
     <h1>User List</h1>
     <ul>
@@ -35,8 +33,7 @@ useEffect(fetchUsers
       ))}
     </ul>
   </>
-)}
-</>
+
   )
 }
 
