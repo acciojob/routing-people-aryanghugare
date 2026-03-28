@@ -1,40 +1,24 @@
-import React from 'react';
-import { useEffect  } from 'react';
-import { useState } from 'react';
-import { Link } from "react-router-dom";
+import React, { useEffect, useState } from 'react'
+import { Link } from 'react-router-dom';
 
+export default function UserList() {
 
+    const [users, setUsers] = useState([]);
 
-function UserList() {
+    useEffect(() => {
+        fetch("https://jsonplaceholder.typicode.com/users")
+            .then(response => response.json())
+            .then(setUsers)
+    },[])
 
-const [users,setUsers] = useState([]);
-const [loading,setLoading] = useState(false);
-const fetchUsers =  () =>{
-setLoading(true);
-fetch('https://jsonplaceholder.typicode.com/users')
-.then((res)=> res.json())
-
-.then((data)=> setUsers(data))
-.catch((error)=> console.log(error))
-.finally(()=> setLoading(false))
+    return (
+        <>
+            <h1>User List</h1>
+            <ul>
+                {users?.map(({ id, name }) => <li key={id}>
+                    <Link to={`/users/${id}`}>{name}</Link>
+                </li>)}
+            </ul>
+        </>
+    )
 }
- 
-
-useEffect(fetchUsers
-,[])
-  return (
-   
-
-  <>
-    <h1>User List</h1>
-    <ul>
-      {users.map((user) => (
-        <li key={user.id}><Link to={"/users/" + user.id}>{user.name}</Link></li>
-      ))}
-    </ul>
-  </>
-
-  )
-}
-
-export default UserList
