@@ -24,12 +24,12 @@ useEffect(fetchUsers,[])
 
   return (
     <>
-<h1>User Details</h1>
 {
 loading ? <h1>Loading...</h1> :
 
 
 <div key={users.id}>
+<h1>User Details</h1>
 <p>Name : {users.name}</p>
 <p>Username : {users.username}</p>
 <p>Email : {users.email}</p>
