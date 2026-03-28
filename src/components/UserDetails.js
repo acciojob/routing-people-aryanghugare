@@ -5,21 +5,18 @@ import { useState,useEffect } from 'react';
 function UserDetails() {
 
 const [users,setUsers] = useState({});
-const [loading,setLoading] = useState(false);
+const [loading,setLoading] = useState(true);
 
 const {id}= useParams();
-const fetchUsers=() => {
 
+useEffect(() => {
 setLoading(true);
 fetch(`https://jsonplaceholder.typicode.com/users/${id}`)
 .then((res)=> res.json())
 .then((data)=> setUsers(data))
 .catch((error)=> console.log(error))
 .finally(()=> setLoading(false))
-}
-
-
-useEffect(fetchUsers,[id])
+},[id])
 
 
   return (
